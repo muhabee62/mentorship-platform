@@ -5,20 +5,20 @@ Designed for secure onboarding, role‑based access, and scalable API architectu
 
 ---
 
-## 🎯 Platform Overview
+##  Platform Overview
 
 The **Mentorship Platform** is a comprehensive solution enabling organizations to facilitate meaningful mentor-mentee relationships at scale. It combines enterprise-grade security with an intuitive user experience, supporting three distinct roles: Admins, Mentors, and Mentees.
 
 ### Key Value Propositions
-- ✅ **Secure by Default** - Built on Microsoft Entra External ID (CIAM) with zero hardcoded secrets
-- ✅ **Scalable Architecture** - Serverless backend using Azure Functions for cost-effective scaling
-- ✅ **Role-Based Access Control** - Fine-grained permissions for Admins, Mentors, and Mentees
-- ✅ **Full-Stack TypeScript & C#** - Modern development stack with strong typing throughout
-- ✅ **Production-Ready** - Ready for deployment to Azure with CI/CD integration
+-  **Secure by Default** - Built on Microsoft Entra External ID (CIAM) with zero hardcoded secrets
+-  **Scalable Architecture** - Serverless backend using Azure Functions for cost-effective scaling
+-  **Role-Based Access Control** - Fine-grained permissions for Admins, Mentors, and Mentees
+-  **Full-Stack TypeScript & C#** - Modern development stack with strong typing throughout
+-  **Production-Ready** - Ready for deployment to Azure with CI/CD integration
 
 ---
 
-## 📁 Architecture Overview
+##  Architecture Overview
 
 This repository is a **monorepo** containing both the backend API and the frontend application.
 
@@ -83,7 +83,7 @@ mentorship-platform/
 
 ---
 
-## 🔐 Identity & Security
+##  Identity & Security
 
 The platform uses **Microsoft Entra External ID (CIAM)** for authentication and authorization, providing enterprise-grade security with minimal infrastructure overhead.
 
@@ -103,7 +103,7 @@ User Login → Azure Entra ID → MSAL (Browser) → JWT Token → API Request �
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Backend (C# - 82.5%)
 - **Azure Functions** (Isolated .NET 8.0+)
@@ -130,7 +130,7 @@ User Login → Azure Entra ID → MSAL (Browser) → JWT Token → API Request �
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -216,32 +216,32 @@ User Login → Azure Entra ID → MSAL (Browser) → JWT Token → API Request �
 
 ---
 
-## ✨ Core Features
+##  Core Features
 
 ### For Mentees
-- 🎯 Browse available mentors and their expertise
-- 📅 Request and schedule mentoring sessions
-- 📝 Track session history and take notes
-- 📊 View progress and learning outcomes
-- 🔔 Receive notifications about session updates
+-  Browse available mentors and their expertise
+-  Request and schedule mentoring sessions
+-  Track session history and take notes
+-  View progress and learning outcomes
+-  Receive notifications about session updates
 
 ### For Mentors
-- 👥 Manage mentee relationships
-- 📋 Set availability and session preferences
-- 📅 Schedule and track sessions
-- 💬 Leave feedback and guidance notes
-- 📈 View mentee progress insights
+-  Manage mentee relationships
+-  Set availability and session preferences
+-  Schedule and track sessions
+-  Leave feedback and guidance notes
+-  View mentee progress insights
 
 ### For Admins
-- 👨‍💼 User and role management
-- 📊 Analytics and reporting dashboard
-- 🎯 Mentor-mentee matching algorithms (future)
-- 🔧 Platform configuration and settings
-- 📢 System notifications and announcements
+-  User and role management
+-  Analytics and reporting dashboard
+-  Mentor-mentee matching algorithms (future)
+-  Platform configuration and settings
+-  System notifications and announcements
 
 ---
 
-## 🗄️ Database Schema
+##  Database Schema
 
 The platform uses Azure SQL with the following key entities:
 
@@ -287,7 +287,7 @@ Feedback
 
 ---
 
-## 🚢 Deployment
+##  Deployment
 
 ### Deploy Backend to Azure Functions
 
@@ -364,7 +364,7 @@ jobs:
 
 ---
 
-## 🔧 API Endpoints
+##  API Endpoints
 
 All endpoints require valid JWT token with appropriate role claims.
 
@@ -394,7 +394,7 @@ All endpoints require valid JWT token with appropriate role claims.
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Backend Issues
 
@@ -432,7 +432,7 @@ choco install azure-functions-core-tools
 
 ---
 
-## 📚 Environment Variables Reference
+##  Environment Variables Reference
 
 ### Backend (`local.settings.json`)
 | Variable | Purpose | Example |
@@ -453,7 +453,7 @@ choco install azure-functions-core-tools
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please follow these guidelines:
 
@@ -497,7 +497,7 @@ Closes #123
 
 ---
 
-## 📖 Additional Resources
+##  Additional Resources
 
 - [Azure Functions Documentation](https://learn.microsoft.com/en-us/azure/azure-functions/)
 - [Microsoft Entra External ID Docs](https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam)
@@ -507,7 +507,7 @@ Closes #123
 
 ---
 
-## 🔒 Security Notes
+##  Security Notes
 
 - **Secrets Management**: Use Azure Key Vault for production secrets, never commit to Git
 - **HTTPS Only**: Always use HTTPS in production; HTTP only for local development
@@ -518,7 +518,7 @@ Closes #123
 
 ---
 
-## 📋 Repository Notes
+##  Repository Notes
 
 - Secrets are **never** committed (GitHub push protection enabled)
 - `local.settings.json` and `.env` are intentionally ignored by Git
@@ -528,21 +528,21 @@ Closes #123
 
 ---
 
-## 🗺️ Roadmap & Future Improvements
+##  Roadmap & Future Improvements
 
-- ✅ Core platform architecture
-- ✅ Authentication & authorization
-- ⏳ Automated mentor-mentee matching algorithm
-- ⏳ Admin analytics dashboard with charts and KPIs
-- ⏳ Notification system (email, SMS, in-app)
-- ⏳ Video conferencing integration (Teams/Zoom)
-- ⏳ Mobile app (React Native)
-- ⏳ AI-powered session recommendations
-- ⏳ Automated testing suite (unit, integration, E2E)
+-  Core platform architecture
+-  Authentication & authorization
+-  Automated mentor-mentee matching algorithm
+-  Admin analytics dashboard with charts and KPIs
+-  Notification system (email, SMS, in-app)
+-  Video conferencing integration (Teams/Zoom)
+-  Mobile app (React Native)
+-  AI-powered session recommendations
+-  Automated testing suite (unit, integration, E2E)
 
 ---
 
-## 📞 Support & Questions
+##  Support & Questions
 
 For issues, questions, or feature requests:
 - Open a [GitHub Issue](https://github.com/muhabee62/mentorship-platform/issues)
@@ -551,13 +551,13 @@ For issues, questions, or feature requests:
 
 ---
 
-## 📄 License
+##  License
 
 This project is open source. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👤 Author
+##  Author
 
 **muhabee62**
 - GitHub: [@muhabee62](https://github.com/muhabee62)
@@ -565,8 +565,8 @@ This project is open source. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-**Built with ❤️ for mentorship communities**
+**Built with love for mentorship communities**
 
-⭐ If you find this repository helpful, please consider giving it a star!
+ If you find this repository helpful, please consider giving it a star!
 
 *Last Updated: May 2026*
