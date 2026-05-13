@@ -1,0 +1,7 @@
+# Root
+.vscode/
+.DS_Store
+
+# Extra safety (in case project .gitignore changes later)
+backend/local.settings.json
+frontend/.env
