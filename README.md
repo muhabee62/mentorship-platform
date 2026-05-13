@@ -6,7 +6,7 @@ Designed for secure onboarding, role‑based access, and scalable API architectu
 ---
 
 ##  Architecture Overview
-
+```
 This repository is a **monorepo** containing both the backend API and the frontend application.
 
 mentorship-platform/
@@ -26,7 +26,7 @@ mentorship-platform/
 │   └── components/ # Shared UI elements
 ├── public/
 └── ...
-
+```
 
 ---
 
