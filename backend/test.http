@@ -1,0 +1,42 @@
+### Step 1 — Request device code
+POST https://login.microsoftonline.com/ec61976d-588d-440a-be1d-98142bf24f18/oauth2/v2.0/devicecode
+Content-Type: application/x-www-form-urlencoded
+
+client_id=6cf34eaa-2df6-4fe5-9222-25c170a56bf5&
+scope=api://882b276f-9fbb-49a3-8746-9af61dd28599/.default offline_access
+
+
+### Step 2 — Exchange device code for token
+# Replace DEVICE_CODE_HERE with the "device_code" returned from Step 1
+POST https://login.microsoftonline.com/ec61976d-588d-440a-be1d-98142bf24f18/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=device_code&
+client_id=6cf34eaa-2df6-4fe5-9222-25c170a56bf5&
+device_code=LBgABIQEAAACvnsHKEvvRQb3Bz3Qc7wnaRXZvU3RzQXJ0aWZhY3RzAQAAAAAAkDpn91D81ZMxz2ieLu0uiXdCk9A4Wf6flRCZfzzwF_92PSLudhM7hq0NQHnJ7_C7oEBlbYL1BWsqdRxHxlQaBOdsywV47nXLqnZw_uIGw8y3tU4VJMhT5VLmwFX-UEUODOEVAY_GiP4nrDsFMX8jEdUdeKT-cRq-fuvO4vYdRVKVWCLcf3lcuIfsjE2vm61gUWebYPXpgampullvCOlVLDzxTxRVRZiUP-QwLrf5QxlioaM0RtiitS5grG3R_D9JU7nzTV1cMH2YqyJBCKgryNfOAJXHPbDrzw-I-fAsL-tEvYB3mtviTbv5cWD6XCVEqCs5zBi_8TnkdS_WM781nWp2hv6rF7wjAfT1rv5neAgfvXTrAf5hp-KhtT18Qg5Mb_92P0-j64XtqPEozMS_0ubYekIV7Bc6_ZnJ1dvlk2m7qDjOo2MpBMzyyKAIaCXBSH9xcTx2gxTjZK5eWJvtBLbOB1DffcuYguZBScPMpSp-aRJy-0mbpkZ5fNFWiIMSIK5-79dlE1J9Y7bjTEMOwigMRNt_DZ2MBhTF7HtFPQePg2lzDWf6fgSUdMWl9OLR1BJ7W2lRlNSW12vNOWlZVlBunTybSjUFeHzOoqIqj1DZeeij_R5XcZx_pRe9p_IeHykwBTYkigF1u2gQ7oeV829cIWQPTxwk9BK8_9_MfU6g01Pca2oWOCzfx1aQVcvnxP0QP3NSpv7JNwp4NKEOCf9iqiybojQBQsRjzOCFO2kgAA&
+scope=api://882b276f-9fbb-49a3-8746-9af61dd28599/.default offline_access
+
+###
+
+GET http://localhost:7071/api/rbac/admin
+Authorization: 
+###
+
+GET http://localhost:7071/api/HttpTrigger1
+
+
+
+###
+
+GET http://localhost:7071/api/users
+Content-Type: application/json
+
+{
+  "name": "Bello",
+  "email": "bello@example.com",
+  "role": "mentor"
+}"
+
+
+
+

@@ -62,7 +62,8 @@ namespace MentorshipPlatform.Api.Users
 
             checkCmd.Parameters.AddWithValue("@UserId", id);
 
-            int exists = (int)await checkCmd.ExecuteScalarAsync();
+            var result = await checkCmd.ExecuteScalarAsync();
+            int exists = result != null && result != DBNull.Value ? (int)result : 0;
             if (exists == 0)
             {
                 var notFound = req.CreateResponse(HttpStatusCode.NotFound);

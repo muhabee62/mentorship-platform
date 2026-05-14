@@ -50,7 +50,7 @@ namespace MentorshipPlatform.Api.Admin
 
             checkCmd.Parameters.AddWithValue("@UserId", id);
 
-            string existingRole = null;
+            string? existingRole = null;
             bool isActive = false;
 
             using (var reader = await checkCmd.ExecuteReaderAsync())
@@ -102,7 +102,8 @@ namespace MentorshipPlatform.Api.Admin
 
             mentorCheckCmd.Parameters.AddWithValue("@UserId", id);
 
-            int mentorExists = (int)await mentorCheckCmd.ExecuteScalarAsync();
+            var mentorResult = await mentorCheckCmd.ExecuteScalarAsync();
+            int mentorExists = mentorResult != null ? (int)mentorResult : 0;
 
             if (mentorExists == 0)
             {

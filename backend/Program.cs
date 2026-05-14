@@ -21,13 +21,13 @@ builder.Services.AddSingleton(sp =>
 
     return new CiamRoleSettings
     {
-        TenantId      = config["Ciam:TenantId"]!,
-        ClientId      = config["Ciam:ClientId"]!,
-        ClientSecret  = config["Ciam:ClientSecret"]!,
-        ApiAppId      = config["Ciam:ApiAppId"]!,
-        AdminRoleId   = config["Ciam:AdminRoleId"]!,
-        MentorRoleId  = config["Ciam:MentorRoleId"]!,
-        MenteeRoleId  = config["Ciam:MenteeRoleId"]!
+        TenantId     = config["Ciam:TenantId"]     ?? config["Ciam_TenantId"],
+        ClientId     = config["Ciam:ClientId"]     ?? config["Ciam_ClientId"],
+        ClientSecret = config["Ciam:ClientSecret"] ?? config["Ciam_ClientSecret"],
+        ApiAppId     = config["Ciam:ApiAppId"]     ?? config["Ciam_ApiAppId"],
+        AdminRoleId  = config["Ciam:AdminRoleId"]  ?? config["Ciam_AdminRoleId"],
+        MentorRoleId = config["Ciam:MentorRoleId"] ?? config["Ciam_MentorRoleId"],
+        MenteeRoleId = config["Ciam:MenteeRoleId"] ?? config["Ciam_MenteeRoleId"]
     };
 });
 

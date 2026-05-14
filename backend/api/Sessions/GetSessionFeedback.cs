@@ -45,7 +45,7 @@ namespace MentorshipPlatform.Api.Sessions
             // Determine logged-in user's role
             // -----------------------------------------
             var principal = context.GetAuthenticatedUser();
-            bool isAdmin = principal.IsInRole("Admin");
+            bool isAdmin = principal?.IsInRole("Admin") ?? false;
 
             int? loggedInMentorId = null;
             int? loggedInMenteeId = null;
@@ -187,9 +187,9 @@ namespace MentorshipPlatform.Api.Sessions
     {
         public int FeedbackId { get; set; }
         public int SubmittedByUserId { get; set; }
-        public string SubmittedByName { get; set; }
+        public string? SubmittedByName { get; set; }
         public int? Rating { get; set; }
-        public string Comments { get; set; }
+        public string? Comments { get; set; }
         public System.DateTime CreatedAt { get; set; }
     }
 }

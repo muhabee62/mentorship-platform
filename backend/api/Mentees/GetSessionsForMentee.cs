@@ -91,7 +91,8 @@ namespace MentorshipPlatform.Api.Mentees
 
                 checkMentee.Parameters.AddWithValue("@MenteeId", id);
 
-                if ((int)await checkMentee.ExecuteScalarAsync() == 0)
+                var menteeCount = await checkMentee.ExecuteScalarAsync();
+                if ((int?)menteeCount == 0)
                 {
                     var notFound = req.CreateResponse(HttpStatusCode.NotFound);
                     await notFound.WriteStringAsync($"Mentee with ID {id} not found.");
@@ -154,11 +155,11 @@ namespace MentorshipPlatform.Api.Mentees
     {
         public int SessionId { get; set; }
         public int MentorId { get; set; }
-        public string MentorName { get; set; }
+        public string? MentorName { get; set; }
         public System.DateTime ScheduledStartUtc { get; set; }
         public System.DateTime ScheduledEndUtc { get; set; }
-        public string Status { get; set; }
-        public string Notes { get; set; }
+        public string? Status { get; set; }
+        public string? Notes { get; set; }
         public System.DateTime CreatedAt { get; set; }
     }
 }

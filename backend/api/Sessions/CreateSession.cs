@@ -110,7 +110,8 @@ namespace MentorshipPlatform.Api.Sessions
             // Validate mentor exists
             var checkMentor = new SqlCommand("SELECT COUNT(*) FROM Mentors WHERE MentorId = @MentorId", conn2);
             checkMentor.Parameters.AddWithValue("@MentorId", session.MentorId);
-            if ((int)await checkMentor.ExecuteScalarAsync() == 0)
+            var mentorCount = await checkMentor.ExecuteScalarAsync();
+            if ((int?)mentorCount == 0)
             {
                 var notFound = req.CreateResponse(HttpStatusCode.NotFound);
                 await notFound.WriteStringAsync($"Mentor with ID {session.MentorId} does not exist.");
@@ -120,7 +121,8 @@ namespace MentorshipPlatform.Api.Sessions
             // Validate mentee exists
             var checkMentee = new SqlCommand("SELECT COUNT(*) FROM Mentees WHERE MenteeId = @MenteeId", conn2);
             checkMentee.Parameters.AddWithValue("@MenteeId", session.MenteeId);
-            if ((int)await checkMentee.ExecuteScalarAsync() == 0)
+            var menteeCount = await checkMentee.ExecuteScalarAsync();
+            if ((int?)menteeCount == 0)
             {
                 var notFound = req.CreateResponse(HttpStatusCode.NotFound);
                 await notFound.WriteStringAsync($"Mentee with ID {session.MenteeId} does not exist.");
@@ -135,7 +137,8 @@ namespace MentorshipPlatform.Api.Sessions
             checkMatch.Parameters.AddWithValue("@MentorId", session.MentorId);
             checkMatch.Parameters.AddWithValue("@MenteeId", session.MenteeId);
 
-            if ((int)await checkMatch.ExecuteScalarAsync() == 0)
+            var matchCount = await checkMatch.ExecuteScalarAsync();
+            if ((int?)matchCount == 0)
             {
                 var conflict = req.CreateResponse(HttpStatusCode.Conflict);
                 await conflict.WriteStringAsync("This mentor and mentee are not matched.");
@@ -169,6 +172,6 @@ namespace MentorshipPlatform.Api.Sessions
         public int MenteeId { get; set; }
         public DateTime ScheduledStartUtc { get; set; }
         public DateTime ScheduledEndUtc { get; set; }
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
     }
 }

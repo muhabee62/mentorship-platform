@@ -47,7 +47,7 @@ namespace MentorshipPlatform.Api.Users
             // Determine logged-in user's role
             // -----------------------------------------
             var principal = context.GetAuthenticatedUser();
-            bool isAdmin = principal.IsInRole("Admin");
+            bool isAdmin = principal?.IsInRole("Admin") ?? false;
 
             // -----------------------------------------
             // IBAC:
@@ -90,7 +90,8 @@ namespace MentorshipPlatform.Api.Users
 
             checkCmd.Parameters.AddWithValue("@UserId", id);
 
-            int exists = (int)await checkCmd.ExecuteScalarAsync();
+            var result = await checkCmd.ExecuteScalarAsync();
+            int exists = result != null && result != DBNull.Value ? (int)result : 0;
             if (exists == 0)
             {
                 var notFound = req.CreateResponse(HttpStatusCode.NotFound);
@@ -126,9 +127,9 @@ namespace MentorshipPlatform.Api.Users
 
     public class UserUpdateDto
     {
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public string Role { get; set; }
+        public string? FullName { get; set; }
+        public string? Email { get; set; }
+        public string? Role { get; set; }
         public bool IsActive { get; set; }
     }
 }

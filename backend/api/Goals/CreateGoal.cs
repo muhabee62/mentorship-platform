@@ -89,7 +89,7 @@ namespace MentorshipPlatform.Api.Goals
             }
 
             var principal = context.GetAuthenticatedUser();
-            bool isAdmin = principal.IsInRole("Admin");
+            bool isAdmin = principal?.IsInRole("Admin") ?? false;
             bool isMentee = loggedInMenteeId != null;
 
             // -----------------------------------------

@@ -166,7 +166,7 @@ namespace MentorshipPlatform.Api.Sessions
     {
         public DateTime? ScheduledStartUtc { get; set; }
         public DateTime? ScheduledEndUtc { get; set; }
-        public string Status { get; set; }
-        public string Notes { get; set; }
+        public string? Status { get; set; }
+        public string? Notes { get; set; }
     }
 }

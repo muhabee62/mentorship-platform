@@ -50,7 +50,7 @@ namespace MentorshipPlatform.Api.Admin
 
             checkCmd.Parameters.AddWithValue("@UserId", id);
 
-            string existingRole = null;
+            string? existingRole = null;
             bool isActive = false;
 
             using (var reader = await checkCmd.ExecuteReaderAsync())

@@ -89,9 +89,9 @@ namespace MentorshipPlatform.Api.Matches
     {
         public int MatchId { get; set; }
         public int MentorId { get; set; }
-        public string MentorName { get; set; }
+        public string? MentorName { get; set; }
         public int MenteeId { get; set; }
-        public string MenteeName { get; set; }
+        public string? MenteeName { get; set; }
         public System.DateTime CreatedAt { get; set; }
     }
 }

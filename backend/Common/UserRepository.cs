@@ -41,7 +41,7 @@ namespace MentorshipPlatform.Common
             return result as string;
         }
 
-        // NEW: CIAM-driven JIT provisioning
+        // JIT provisioning with role support
         public async Task<int> GetOrCreateUserAsync(string email, string role)
         {
             using var conn = await _factory.CreateAsync();
@@ -69,7 +69,10 @@ namespace MentorshipPlatform.Common
             insertCmd.Parameters.AddWithValue("@Role", role);
             insertCmd.Parameters.AddWithValue("@CreatedAt", DateTime.UtcNow);
 
-            var newUserId = (int)await insertCmd.ExecuteScalarAsync();
+            var result = await insertCmd.ExecuteScalarAsync();
+            if (result == null || result == DBNull.Value)
+                throw new InvalidOperationException("Failed to insert user");
+            var newUserId = (int)result;
 
             // 3. Insert into correct role table
             await InsertIntoRoleTableAsync(conn, newUserId, role);
